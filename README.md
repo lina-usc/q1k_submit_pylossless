@@ -25,12 +25,12 @@ pip install --no-index pandas
 pip install --no-index xarray
 pip install --no-index pyyaml
 pip install --no-index sklearn
-pip install --no-index EDFlib
-pip install --no-index openneuro-py
-pip install --no-index mne_bids
+pip install EDFlib
+pip install openneuro-py
+pip install mne_bids
 ```
 
-# Clone down mne-iclabel and switch to the right version and install it locally
+## Clone down mne-iclabel and switch to the right version and install it locally
 ```bash
 git clone https://github.com/mne-tools/mne-icalabel.git
 cd mne-icalabel
@@ -39,15 +39,15 @@ pip install .
 cd ..
 ```
 
-# Clone down pipeline and install without reading dependencies
+## Clone down pipeline and install without reading dependencies
 ```bash
 git clone git@github.com:lina-usc/pylossless.git
 cd pylossless
 pip install --no-deps .
 cd ..
 ```
-#usage:
+## usage:
 ```bash
 source env/bin/activate
-sbatch jobsub_s_bids.sh /project/def-emayada/q1k/pilot/q1k-external-pilot/ 002 01 mn /project/def-emayada/q1k/pilot/q1k-external-pilot/derivatives/pylossless
+sbatch q1k_yll_jobsub.sh /project/def-emayada/q1k/pilot/q1k-external-pilot/ 002 01 mn /project/def-emayada/q1k/pilot/q1k-external-pilot/derivatives/pylossless
 ```
