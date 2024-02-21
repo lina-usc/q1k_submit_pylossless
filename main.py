@@ -36,7 +36,7 @@ raw.info['bads'].extend(eog_chans)
 #raw.set_channel_types(mapper)
 
 # Execute only on EEG and EOG channels
-pipeline = ll.LosslessPipeline('q1k_bids_config.yaml')
+pipeline = ll.LosslessPipeline('q1k_pyll_config.yaml')
 pipeline.run_with_raw(raw)
 
 # Stdout

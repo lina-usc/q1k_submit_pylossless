@@ -25,7 +25,7 @@ pip install --no-index pandas
 pip install --no-index xarray
 pip install --no-index pyyaml
 pip install --no-index sklearn
-pip install EDFlib
+pip install EDFlib-Python
 pip install openneuro-py
 pip install mne_bids
 ```
@@ -49,5 +49,5 @@ cd ..
 ## usage:
 ```bash
 source env/bin/activate
-sbatch q1k_yll_jobsub.sh /project/def-emayada/q1k/pilot/q1k-external-pilot/ 002 01 mn /project/def-emayada/q1k/pilot/q1k-external-pilot/derivatives/pylossless
+sbatch q1k_yll_jobsub.sh /project/def-emayada/q1k/pilot/q1k-external-pilot/ 002 01 mn /project/def-emayada/q1k/pilot/q1k-external-pilot
 ```
