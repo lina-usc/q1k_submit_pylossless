@@ -1,3 +1,4 @@
 env/
 mne-icalabel/
 pylossless/
+slurm_out/
