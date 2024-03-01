@@ -49,5 +49,5 @@ cd ..
 ## usage:
 ```bash
 source env/bin/activate
-sbatch q1k_yll_jobsub.sh /project/def-emayada/q1k/pilot/q1k-external-pilot/ 002 01 mn /project/def-emayada/q1k/pilot/q1k-external-pilot
+sbatch q1k_yll_jobsub.sh /project/def-emayada/q1k/pilot/q1k-external-pilot/ 002 01 mn 1 /project/def-emayada/q1k/pilot/q1k-external-pilot
 ```

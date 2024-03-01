@@ -5,15 +5,16 @@ import sys
 from os.path import exists
 import re
 
-project_path = sys.argv[1] # '/scratch/jdesjard/q1k/pilot/q1k-external-pilot/'
+project_path = sys.argv[1] # '/project/def-emayada/q1k/pilot/q1k-external-pilot/'
 subject_id = sys.argv[2] # '012'
 session_id = sys.argv[3] # '01'
 task_id = sys.argv[4] # 'ssaep'
-out_path = sys.argv[5] # '/scratch/jdesjard/q1k/pilot/q1k-external-pilot/derivatives/pylossless/
+run_id = sys.argv[5] # 1
+out_path = sys.argv[6] # '/project/def-emayada/q1k/pilot/q1k-external-pilot/derivatives/pylossless/
 
 
 bids_path = mne_bids.BIDSPath(
-    subject=subject_id, session=session_id, task=task_id, run="1", datatype="eeg", root=project_path
+    subject=subject_id, session=session_id, task=task_id, run=run_id, datatype="eeg", root=project_path
 )
 
 print('running on: ', subject_id)
@@ -44,5 +45,5 @@ pipeline.run_with_raw(raw)
 # print(pipeline.flagged_epochs)
 
 # Save
-bids_path = mne_bids.BIDSPath(subject=subject_id, session=session_id, task=task_id, suffix='eeg', extension='.edf', datatype='eeg', root=out_path)
+bids_path = mne_bids.BIDSPath(subject=subject_id, session=session_id, task=task_id, run=run_id, suffix='eeg', extension='.edf', datatype='eeg', root=out_path)
 pipeline.save(pipeline.get_derivative_path(bids_path),overwrite=True)
