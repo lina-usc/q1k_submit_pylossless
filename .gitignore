@@ -2,3 +2,4 @@ env/
 mne-icalabel/
 pylossless/
 slurm_out/
+.ipynb_checkpoints/

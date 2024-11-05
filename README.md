@@ -26,6 +26,8 @@ pip install --no-index xarray
 pip install --no-index pyyaml
 pip install --no-index sklearn
 pip install EDFlib-Python
+pip install edfio
+pip install onnxruntime
 pip install openneuro-py
 pip install mne_bids
 ```

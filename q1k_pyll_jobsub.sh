@@ -6,5 +6,6 @@
 
 #source ~/eeg-env/bin/activate
 #cd /project/def-emayada/q1k/pilot/q1k-external-pilot
+source eeg-env/bin/activate
 python main.py $@
 
