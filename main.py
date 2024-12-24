@@ -25,6 +25,26 @@ print('running on: ', subject_id)
 raw = mne_bids.read_raw_bids(bids_path=bids_path)
 raw.load_data()
 
+# Select EEG-only channels
+#eeg_only_raw = raw.copy().pick_types(eeg=True)
+
+
+#raw = mne.io.read_raw_edf(bids_path)
+
+# Get chan type mapping
+#types = {"eyegaze": ["xpos_left", "ypos_left", "xpos_right", "ypos_right"],
+#         "pupil": ["pupil_left", "pupil_right"],
+#         "misc": ["x_head", "y_head", "distance"]}
+#chan_type_map = {ch_name: "eeg" for ch_name in raw.ch_names if ch_name[0] == "E"}
+#chan_type_map["VREF"] = "eeg"
+#for type_, ch_names in types.items():
+#    for ch_name in ch_names:
+#        if ch_name in raw.ch_names:
+#            chan_type_map[ch_name] = type_
+#chan_type_map.update({ch_name: "stim" for ch_name in raw.ch_names if ch_name not in chan_type_map})
+
+#raw.set_channel_types(chan_type_map)
+
 # Allow breaks to be detected from events
 # annos = mne.annotations_from_events(events=mne.find_events(raw, initial_event=True), sfreq=raw.info['sfreq'], orig_time=raw.info['meas_date'],shortest_event=1)
 # raw.set_annotations(annos)
@@ -36,8 +56,13 @@ raw.info['bads'].extend(eog_chans)
 #mapper = {item:'eog' for item in eog_chans}
 #raw.set_channel_types(mapper)
 
+
+
 # Execute only on EEG and EOG channels
-pipeline = ll.LosslessPipeline('q1k_pyll_config.yaml')
+config = ll.config.Config()
+config.load_default()
+pipeline = ll.LosslessPipeline(config=config)
+#pipeline = ll.LosslessPipeline('q1k_pyll_config.yaml')
 pipeline.run_with_raw(raw)
 
 # Stdout
@@ -47,3 +72,4 @@ pipeline.run_with_raw(raw)
 # Save
 bids_path = mne_bids.BIDSPath(subject=subject_id, session=session_id, task=task_id, run=run_id, suffix='eeg', extension='.edf', datatype='eeg', root=out_path)
 pipeline.save(pipeline.get_derivative_path(bids_path),overwrite=True)
+

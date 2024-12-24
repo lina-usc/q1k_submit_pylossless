@@ -1,5 +1,4 @@
-env/
-mne-icalabel/
-pylossless/
-slurm_out/
+slurm_output/
 .ipynb_checkpoints/
+__pycache__/
+
