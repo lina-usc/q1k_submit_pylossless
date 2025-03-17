@@ -18,7 +18,7 @@ def extract_job_info(filename):
         raise ValueError("Filename pattern did not match.")
 
 # Function to submit job to Slurm scheduler
-def submit_slurm_job(project_path, filename):
+def submit_slurm_job(project_path, filename, task_id):
     
     out_file = filename.replace(".edf", ".out")
     job_name = filename.replace(".edf", "_pyll")
@@ -30,7 +30,7 @@ def submit_slurm_job(project_path, filename):
     sbatch_command = [
         'sbatch',
         '--job-name=' + job_name,
-        '--output=slurm_output/' +  out_file,
+        '--output=slurm_output/' +  task_id + '/' + out_file,
         'q1k_pyll_jobsub.sh',
         project_path,
         subject_id,
